@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:weather_app/model/weather_response.dart';
+import 'weather_provider.dart';
 import 'home_page.dart';
 
 import 'weather_provider.dart';
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Weather App",
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(),
       home: HomePage(),
     );
