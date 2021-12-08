@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class UIDesign extends StatelessWidget {
@@ -11,16 +10,16 @@ class UIDesign extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "Weather Design",
-          style: TextStyle(fontWeight: FontWeight.w100, fontSize: 18),
+          style: TextStyle(fontWeight: FontWeight.w100, fontSize: 18, color: Colors.white),
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Icon(Icons.search),
+        leading: Icon(Icons.search, color: Colors.white,),
         actions: [
           Padding(
             padding: EdgeInsets.only(right: 20),
-            child: Icon(Icons.menu),
+            child: Icon(Icons.menu, color: Colors.white,),
           )
         ],
       ),
@@ -44,17 +43,16 @@ class UIDesign extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          height: 60,
+                          height: 70,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(left: 15.0),
+                              padding: const EdgeInsets.only(top: 0,left: 15.0),
                               child: Text("Chattogram",
                                   style: TextStyle(
                                     fontSize: 25,
@@ -78,30 +76,31 @@ class UIDesign extends StatelessWidget {
                             ),
                           ],
                         ),
+                        SizedBox(
+                          height: 270,
+                        ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(left: 15.0),
-                              child: Text("24\u2103",
+                              child: Text("22°C",
                                   style: TextStyle(
-                                    fontSize: 25,
+                                    fontSize: 75,
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                   )),
                             ),
-                            SizedBox(
-                              height: 5,
-                            ),
                             Padding(
                               padding: const EdgeInsets.only(left: 15.0),
-                              child: Text(
-                                "9:54 AM - Tuesday, 9 Dec 2021",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w100,
-                                ),
+                              child: Row(
+                                children: [
+                                  Icon(Icons.access_time, color: Colors.white, size: 20,),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text("Day", style: TextStyle(fontSize: 20, color: Colors.white),),
+                                ],
                               ),
                             ),
                           ],
@@ -110,108 +109,126 @@ class UIDesign extends StatelessWidget {
                     ),
                   ),
                   Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                border: Border.all(width: 1, color: Colors.white30)
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              border: Border.all(width: 1, color: Colors.white30)
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 25, bottom: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 60.0, right: 30.0),
+                              child: Column(
+                                children: [
+                                  Text("Wind", style: TextStyle(
+                                    color: Colors.white,
+                                  ),),
+                                  Text("10", style: TextStyle(
+                                    color: Colors.white,
+                                  ),),
+                                  Text("km/h", style: TextStyle(
+                                    color: Colors.white,
+                                  ),),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        height: 5,
+                                        width: 50,
+                                        color: Colors.white38,
+                                      ),
+                                      Container(
+                                        height: 5,
+                                        width: 10,
+                                        color: Colors.greenAccent,
+                                      )
+                                    ],
+                                  )
+                                ],
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(top: 25, bottom: 20),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 60.0, right: 30.0),
-                                  child: Column(
+                            SizedBox(width:30),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 30.0, right: 50.0),
+                              child: Column(
+                                children: [
+                                  Text("Rain", style: TextStyle(
+                                    color: Colors.white,
+                                  )),
+                                  Text("10", style: TextStyle(
+                                    color: Colors.white,
+                                  ),),
+                                  Text("%", style: TextStyle(
+                                    color: Colors.white,
+                                  ),),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Stack(
                                     children: [
-                                      Text("Wind"),
-                                      Text("10"),
-                                      Text("km/h"),
-                                      SizedBox(
+                                      Container(
                                         height: 5,
+                                        width: 50,
+                                        color: Colors.white38,
                                       ),
-                                      Stack(
-                                        children: [
-                                          Container(
-                                            height: 5,
-                                            width: 50,
-                                            color: Colors.white38,
-                                          ),
-                                          Container(
-                                            height: 5,
-                                            width: 10,
-                                            color: Colors.greenAccent,
-                                          )
-                                        ],
+                                      Container(
+                                        height: 5,
+                                        width: 5,
+                                        color: Colors.redAccent,
                                       )
                                     ],
-                                  ),
-                                ),
-                                SizedBox(width:30),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 30.0, right: 50.0),
-                                  child: Column(
-                                    children: [
-                                      Text("Rain"),
-                                      Text("10"),
-                                      Text("%"),
-                                       SizedBox(
-                                        height: 5,
-                                      ),
-                                      Stack(
-                                        children: [
-                                          Container(
-                                            height: 5,
-                                            width: 50,
-                                            color: Colors.white38,
-                                          ),
-                                          Container(
-                                            height: 5,
-                                            width: 5,
-                                            color: Colors.redAccent,
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(width:30),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 10.0, right:70),
-                                  child: Column(
-                                    children: [
-                                      Text("Humidy"),
-                                      Text("10"),
-                                      Text("%"),
-                                       SizedBox(
-                                        height: 5,
-                                      ),
-                                      Stack(
-                                        children: [
-                                          Container(
-                                            height: 5,
-                                            width: 50,
-                                            color: Colors.white38,
-                                          ),
-                                          Container(
-                                            height: 5,
-                                            width: 3,
-                                            color: Colors.redAccent,
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
-                      )
+                            SizedBox(width:30),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10.0, right:70),
+                              child: Column(
+                                children: [
+                                  Text("Humidy", style: TextStyle(
+                                    color: Colors.white,
+                                  ),),
+                                  Text("10", style: TextStyle(
+                                    color: Colors.white,
+                                  ),),
+                                  Text("%", style: TextStyle(
+                                    color: Colors.white,
+                                  ),),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        height: 5,
+                                        width: 50,
+                                        color: Colors.white38,
+                                      ),
+                                      Container(
+                                        height: 5,
+                                        width: 3,
+                                        color: Colors.redAccent,
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  )
                 ],
               ),
             ),

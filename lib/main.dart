@@ -4,6 +4,7 @@ import 'package:weather_app/model/weather_response.dart';
 import 'package:weather_app/weather_ui_design.dart';
 import 'weather_provider.dart';
 import 'home_page.dart';
+import 'ui_design.dart';
 
 import 'weather_provider.dart';
 
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       title: "Weather App",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: UIDesign(),
+      home: UI(),
     );
   }
 }
