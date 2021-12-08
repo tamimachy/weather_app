@@ -1,9 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:weather_app/model/weather_response.dart';
+import 'package:weather_app/weather_provider.dart';
+import 'weather_provider.dart';
 
-class UI extends StatelessWidget {
+class UI extends StatefulWidget {
   const UI({Key? key}) : super(key: key);
 
+  @override
+  State<UI> createState() => _UIState();
+}
+
+class _UIState extends State<UI> {
+
+  bool isLoading = true;
+
+  void didChangeDependencies(){
+    Provider.of<WeatherProvider>(context).getCurrentWeatherInfo().then((value){
+      setState(() {
+        isLoading = false;
+      });
+    });
+    super.didChangeDependencies();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,8 +45,12 @@ class UI extends StatelessWidget {
                   textStyle: h2,
                 )
               ),
-              Text("28°C", style: GoogleFonts.montserrat(textStyle: h1, 
-                  color: Colors.deepPurple[700],),),
+              Consumer<WeatherProvider>(
+                builder: (context, value, child) => isLoading?
+                Center(child: CircularProgressIndicator(),):
+                Text("${value.getMainWeatherData.main.temp}", style: GoogleFonts.montserrat(textStyle: h1,
+                    color: Colors.deepPurple[700],),),
+              ),
               Text("Light rain", style: GoogleFonts.merriweather(textStyle: h3, color: Colors.grey),),
               SizedBox(height: 40,),
               Container(
@@ -39,10 +63,15 @@ class UI extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text("Temperature", style: GoogleFonts.merriweather(textStyle: h3,)),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5.0),
-                          child: Text("28°C", style: GoogleFonts.montserrat(textStyle: h3, color: Colors.grey)),
-                        )
+                        // Padding(
+                        //   padding: const EdgeInsets.only(left: 5.0),
+                        //   child: Text("${value.getMainWeatherData.main.temp}", style: GoogleFonts.montserrat(textStyle: h3, color: Colors.grey)),
+                        // )
+                        Consumer<WeatherProvider>(
+                          builder: (context, value, child) => isLoading?
+                          Center(child: CircularProgressIndicator(),):
+                          Text("${value.getMainWeatherData.main.temp}", style: GoogleFonts.montserrat(textStyle: h3, color: Colors.grey)),
+                        ),
                       ],
                     )
                   ],

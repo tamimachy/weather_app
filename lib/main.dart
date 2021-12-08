@@ -9,13 +9,13 @@ import 'ui_design.dart';
 import 'weather_provider.dart';
 
 void main(){
-  runApp(MyApp()
-    // MultiProvider(
-    //   providers: [
-    //     ChangeNotifierProvider(create: (contex)=>WeatherProvider()),
-    //   ],
-    //   child: MyApp(),
-    // )
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (contex)=>WeatherProvider()),
+      ],
+      child: MyApp(),
+    )
   );
 }
 class MyApp extends StatelessWidget {
